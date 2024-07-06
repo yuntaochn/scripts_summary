@@ -1,0 +1,13 @@
+
+export PATH=/usr/include/pcl-1.10:/usr/include:$PATH
+export PATH=/home/efort/Qt/Tools/QtCreator/bin:$PATH
+export PATH=/home/efort/Qt/5.12.12/gcc_64:$PATH
+export Qt5Charts_DIR=/home/efort/Qt/5.12.12/gcc_64/lib/cmake/Qt5Charts:$Qt5Charts_DIR
+
+export XMODIFIERS=@im=fcitx  
+export XIM=fcitx  
+export XIM_PROGRAM=fcitx  
+export GTK_IM_MODULE=fcitx  
+export QT_IM_MODULE=fcitx
+
+

@@ -1,0 +1,32 @@
+# 通信服务
+INET:
+    # ROBOX控制器
+    RBX_1:
+       smb_ip: 101.103.108.3
+       shared_path: "data/CMAFILES/PROGRAMS"
+       smb_pwd: qwe123
+       port: 8100
+      #  id: 1
+       
+    # B&R控制器
+    B&R_1:
+       smb_ip: 101.103.107.3
+       shared_path: "data%20(d)/CMAFILES/PROGRAMS"
+       smb_pwd: "qwe123"
+      #  port: 2001
+      #  id: 2
+ 
+    # PLC监控服务
+    PLC_MONITOR:
+       ip: 192.168.0.107
+      #  ip: 10.111.182.63
+       port: 2001
+
+    # PLC控制指令服务
+    PLC_CONTROLLER:
+       ip: 192.168.0.107
+      #  ip: 10.111.182.63
+       port: 2003
+
+    
+    

@@ -1,0 +1,51 @@
+{
+    
+    "doxdocgen.file.copyrightTag": [
+        "@copyright Copyright (c) {year}  埃夫特智能装备股份有限公司"
+    ],
+    "doxdocgen.file.customTag": [
+        "@par 修改日志:",
+        "<table>",
+        "<tr><th>Date       <th>Version <th>Author  <th>Description",
+        "<tr><td>{date} <td>1.0     <td>wangh     <td>内容",
+        "</table>",
+    ],
+    "doxdocgen.file.fileOrder": [
+        "copyright",
+        "empty",
+        "author",
+        "version",
+        "date",
+        "empty",
+        "file",
+        "brief"
+    ],
+    "doxdocgen.file.fileTemplate": "@file {name}",
+    "doxdocgen.file.versionTag": "@version 0.1",
+    "doxdocgen.generic.authorEmail": "panzhaofei@efort.com.cn",
+    "doxdocgen.generic.authorName": "Pan Zhaofei",
+    "doxdocgen.generic.authorTag": "@author {author} ({email})",
+
+    "doxdocgen.generic.order": [
+        "brief",
+        "tparam",
+        "param",
+        "return"
+    ],
+    "doxdocgen.generic.paramTemplate": "@param{indent:8}{param}{indent:25}",
+    "doxdocgen.generic.returnTemplate": "@return {type} ",
+    "doxdocgen.generic.splitCasingSmartText": true,
+    "doxdocgen.c.firstLine": "/*********************************************************************************",
+    "doxdocgen.c.lastLine": " ********************************************************************************/",
+    "C/C++ Include Guard.Macro Type": "Filename",
+    "C/C++ Include Guard.Suffix": "_H",
+    "cmake.configureOnOpen": true,
+    "cmake.ctest.parallelJobs": 4,
+    "cmake.parallelJobs": 4,
+    "git.confirmSync": false,
+    "window.zoomLevel": 2,
+    "explorer.confirmDelete": false,
+    "git.enableSmartCommit": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "C_Cpp.clang_format_fallbackStyle": "Google"
+}

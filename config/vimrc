@@ -1,0 +1,137 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+
+" Plugin 'VundleVim/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'preservim/nerdtree'
+
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
+let g:ycm_key_invoke_completion = '<c-z>'
+set completeopt=menu,menuone
+
+noremap <c-z> <NOP>
+
+let g:ycm_semantic_triggers =  {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
+
+" let g:ycm_global_ycm_extra_conf='/home/yuntao/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+set shortmess=atI
+set nu
+set ruler
+set autowrite
+set showmatch
+set autoindent	
+set smartindent
+set guifont=YouYuan:h18	
+syntax on	
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smarttab
+set langmenu=zh_CN.UTF-8
+
+
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java exec ":call SetTitle()"
+func SetTitle() 
+    "如果文件类型为.sh文件 
+    if &filetype == 'sh' 
+        call setline(1,"\#########################################################################") 
+        call append(line("."), "\# File Name: ".expand("%")) 
+        call append(line(".")+1, "\# Author: ma6174") 
+        call append(line(".")+2, "\# mail: ma6174@163.com") 
+        call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
+        call append(line(".")+4, "\#########################################################################") 
+        call append(line(".")+5, "\#!/bin/bash") 
+        call append(line(".")+6, "") 
+    else 
+        call setline(1, "/*************************************************************************") 
+        call append(line("."), "    > File Name: ".expand("%")) 
+        call append(line(".")+1, "    > Author: ma6174") 
+        call append(line(".")+2, "    > Mail: ma6174@163.com ") 
+        call append(line(".")+3, "    > Created Time: ".strftime("%c")) 
+        call append(line(".")+4, " ************************************************************************/") 
+        call append(line(".")+5, "")
+    endif
+    if &filetype == 'cpp'
+        call append(line(".")+6, "#include<iostream>")
+        call append(line(".")+7, "using namespace std;")
+        call append(line(".")+8, "")
+    endif
+    if &filetype == 'c'
+        call append(line(".")+6, "#include<stdio.h>")
+        call append(line(".")+7, "")
+    endif
+    "新建文件后，自动定位到文件末尾
+    autocmd BufNewFile * normal G
+endfunc 
+
+" 设置当文件被改动时自动载入
+set autoread
+" quickfix模式
+autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
+"代码补全 
+"set completeopt=preview,menu 
+set completeopt=menu 
+"markdown配置
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+au BufRead,BufNewFile *.{go}   set filetype=go
+au BufRead,BufNewFile *.{js}   set filetype=javascript
+"rkdown to HTML  
+nmap md :!~/.vim/markdown.pl % > %.html <CR><CR>
+nmap fi :!firefox %.html & <CR><CR>
+nmap \ \cc
+vmap \ \cc
+
+"将tab替换为空格
+" nmap tt :%s/\t/    /g<CR>
